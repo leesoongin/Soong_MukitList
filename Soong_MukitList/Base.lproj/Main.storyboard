@@ -1,24 +1,228 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iCg-Gg-0Ag">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--먹킷리스트-->
+        <scene sceneID="ulD-Yz-weP">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="puT-cP-3nd" customClass="MukitListViewController" customModule="Soong_MukitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jlR-WA-sFK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="rvy-ON-AqA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="먹킷리스트" image="hammer.fill" catalog="system" id="kFN-8B-UoT"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1CW-xa-4qh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="317" y="941"/>
+        </scene>
+        <!--Default-->
+        <scene sceneID="bOd-XY-bhZ">
+            <objects>
+                <viewController id="skm-EL-bCr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G5O-Ks-qNM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XIs-Xt-MmQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Default" image="delete.right.fill" catalog="system" id="ltf-3W-pM7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Py-CQ-G18" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="941"/>
+        </scene>
+        <!--맛집리스트-->
+        <scene sceneID="BQW-BZ-xC7">
+            <objects>
+                <viewController id="aJ0-Qq-XxR" customClass="HomeViewController" customModule="Soong_MukitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ipo-zP-chw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="myL-2t-lip" customClass="NMFNaverMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="myL-2t-lip" secondAttribute="height" multiplier="1:1.2" id="4JQ-kz-gSL"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Any-kX-vQ4">
+                                <rect key="frame" x="4" y="44" width="406" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BJv-tW-K5h"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Omd-xs-pkp" kind="embed" identifier="Category" id="jzy-z8-tE8"/>
+                                </connections>
+                            </containerView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Otd-EI-P4s">
+                                <rect key="frame" x="0.0" y="497" width="414" height="316"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MatzipCell" id="lMO-5z-VBM" customClass="MatzipCell" customModule="Soong_MukitList" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMO-5z-VBM" id="kJx-5y-X2a">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfw-67-QI5">
+                                                    <rect key="frame" x="20" y="11" width="334" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rfw-67-QI5" secondAttribute="trailing" id="Dhz-lF-wZF"/>
+                                                <constraint firstItem="rfw-67-QI5" firstAttribute="leading" secondItem="kJx-5y-X2a" secondAttribute="leadingMargin" id="DuM-cP-fs0"/>
+                                                <constraint firstItem="rfw-67-QI5" firstAttribute="bottom" secondItem="kJx-5y-X2a" secondAttribute="bottomMargin" id="Scw-yQ-iB9"/>
+                                                <constraint firstItem="rfw-67-QI5" firstAttribute="top" secondItem="kJx-5y-X2a" secondAttribute="topMargin" id="Sof-bu-9Nr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="testLabel" destination="rfw-67-QI5" id="wYY-e2-Gkf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aJ0-Qq-XxR" id="oip-jD-kWc"/>
+                                    <outlet property="delegate" destination="aJ0-Qq-XxR" id="zi8-oF-Kmf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="u8l-jY-ueX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u8l-jY-ueX" firstAttribute="trailing" secondItem="myL-2t-lip" secondAttribute="trailing" id="GJO-FY-9D5"/>
+                            <constraint firstItem="Otd-EI-P4s" firstAttribute="top" secondItem="myL-2t-lip" secondAttribute="bottom" id="JKx-9i-Bzo"/>
+                            <constraint firstItem="Any-kX-vQ4" firstAttribute="top" secondItem="u8l-jY-ueX" secondAttribute="top" id="O0B-C0-kNE"/>
+                            <constraint firstItem="myL-2t-lip" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" id="QYx-Kc-IcJ"/>
+                            <constraint firstItem="Otd-EI-P4s" firstAttribute="bottom" secondItem="u8l-jY-ueX" secondAttribute="bottom" id="UeN-jU-MK3"/>
+                            <constraint firstItem="Otd-EI-P4s" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" id="ZNH-Mi-8De"/>
+                            <constraint firstItem="Any-kX-vQ4" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" constant="4" id="nnR-mu-k13"/>
+                            <constraint firstItem="myL-2t-lip" firstAttribute="top" secondItem="ipo-zP-chw" secondAttribute="top" id="oJf-bb-5xO"/>
+                            <constraint firstItem="Otd-EI-P4s" firstAttribute="trailing" secondItem="u8l-jY-ueX" secondAttribute="trailing" id="tOM-DN-jgd"/>
+                            <constraint firstItem="u8l-jY-ueX" firstAttribute="trailing" secondItem="Any-kX-vQ4" secondAttribute="trailing" constant="4" id="tiX-v9-9wI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="맛집리스트" image="list.dash" catalog="system" id="XgA-30-Vdz"/>
+                    <connections>
+                        <outlet property="naverMapView" destination="myL-2t-lip" id="ics-LN-OVQ"/>
+                        <outlet property="tableView" destination="Otd-EI-P4s" id="e1d-bR-qiX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1y-Ob-Ame" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1104" y="941"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uDM-if-cG2">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iCg-Gg-0Ag" customClass="TabBarController" customModule="Soong_MukitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BV3-dA-Ru2">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemPinkColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="aJ0-Qq-XxR" kind="relationship" relationship="viewControllers" id="gbH-LZ-hxA"/>
+                        <segue destination="puT-cP-3nd" kind="relationship" relationship="viewControllers" id="ADf-3q-MIM"/>
+                        <segue destination="skm-EL-bCr" kind="relationship" relationship="viewControllers" id="ACJ-em-RnH"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMK-ns-Mpa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317.39130434782612" y="174.77678571428569"/>
+        </scene>
+        <!--Category List View Controller-->
+        <scene sceneID="7cZ-d5-ls3">
+            <objects>
+                <viewController id="Omd-xs-pkp" customClass="CategoryListViewController" customModule="Soong_MukitList" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nUG-rY-3sJ">
+                        <rect key="frame" x="0.0" y="0.0" width="406" height="60"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9KV-Nm-Jba">
+                                <rect key="frame" x="0.0" y="0.0" width="406" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ldU-5O-hQV">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="SbE-T2-40J" customClass="CategoryCell" customModule="Soong_MukitList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-34" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SjX-2B-UCM">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZU-31-Bnj">
+                                                    <rect key="frame" x="35" y="54" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1ZU-31-Bnj" firstAttribute="centerY" secondItem="SjX-2B-UCM" secondAttribute="centerY" id="9V9-CI-Hxz"/>
+                                                <constraint firstItem="1ZU-31-Bnj" firstAttribute="centerX" secondItem="SjX-2B-UCM" secondAttribute="centerX" id="mEE-la-IsC"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Omd-xs-pkp" id="0gE-rR-ShK"/>
+                                    <outlet property="delegate" destination="Omd-xs-pkp" id="4e3-T0-36k"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ARt-Fs-bua"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9KV-Nm-Jba" secondAttribute="trailing" id="O7n-G3-vYP"/>
+                            <constraint firstAttribute="bottom" secondItem="9KV-Nm-Jba" secondAttribute="bottom" id="a9E-4g-hap"/>
+                            <constraint firstItem="9KV-Nm-Jba" firstAttribute="leading" secondItem="nUG-rY-3sJ" secondAttribute="leading" id="mHP-1d-2Uw"/>
+                            <constraint firstItem="9KV-Nm-Jba" firstAttribute="top" secondItem="nUG-rY-3sJ" secondAttribute="top" id="yqT-2p-VqF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="9KV-Nm-Jba" id="6Nm-h9-4t0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q2D-JG-fwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-346" y="722"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete.right.fill" catalog="system" width="128" height="104"/>
+        <image name="hammer.fill" catalog="system" width="128" height="117"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
