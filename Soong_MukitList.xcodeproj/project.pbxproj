@@ -16,6 +16,7 @@
 		A8656F9825B43F58009EE7DA /* MatzipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8656F9725B43F58009EE7DA /* MatzipCell.swift */; };
 		A8656FA125B45F47009EE7DA /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8656FA025B45F47009EE7DA /* CategoryListViewController.swift */; };
 		A8656FA625B46004009EE7DA /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8656FA525B46004009EE7DA /* CategoryCell.swift */; };
+		A8DE135725B7359D00192330 /* MatzipHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DE135625B7359D00192330 /* MatzipHeaderView.swift */; };
 		A8F03F5925B1FD3B00AA0122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F03F5825B1FD3B00AA0122 /* AppDelegate.swift */; };
 		A8F03F5B25B1FD3B00AA0122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F03F5A25B1FD3B00AA0122 /* SceneDelegate.swift */; };
 		A8F03F6025B1FD3B00AA0122 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8F03F5E25B1FD3B00AA0122 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		A8656F9725B43F58009EE7DA /* MatzipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatzipCell.swift; sourceTree = "<group>"; };
 		A8656FA025B45F47009EE7DA /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
 		A8656FA525B46004009EE7DA /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		A8DE135625B7359D00192330 /* MatzipHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatzipHeaderView.swift; sourceTree = "<group>"; };
 		A8F03F5525B1FD3B00AA0122 /* Soong_MukitList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soong_MukitList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F03F5825B1FD3B00AA0122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8F03F5A25B1FD3B00AA0122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				A8656F8C25B40F68009EE7DA /* HomeViewController.swift */,
 				A8656F9725B43F58009EE7DA /* MatzipCell.swift */,
+				A8DE135625B7359D00192330 /* MatzipHeaderView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				A8F03F5B25B1FD3B00AA0122 /* SceneDelegate.swift in Sources */,
 				A8656F8925B40F51009EE7DA /* MukitListViewController.swift in Sources */,
 				A8F03F6325B1FD3B00AA0122 /* Soong_MukitList.xcdatamodeld in Sources */,
+				A8DE135725B7359D00192330 /* MatzipHeaderView.swift in Sources */,
 				A8656F8D25B40F68009EE7DA /* HomeViewController.swift in Sources */,
 				A8656F9025B40F85009EE7DA /* MapViewController.swift in Sources */,
 				A8656FA625B46004009EE7DA /* CategoryCell.swift in Sources */,
