@@ -5,6 +5,9 @@
 //  Created by 이숭인 on 2021/01/17.
 //
 
+//한식 중식 분식 톤까스.회.일식 치킨.피자 패스트푸드. 총 6가지
+
+
 import UIKit
 
 class CategoryListViewController: UIViewController {

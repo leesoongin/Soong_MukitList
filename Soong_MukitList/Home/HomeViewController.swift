@@ -9,7 +9,7 @@ import UIKit
 import NMapsMap
 
 class HomeViewController: MapViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private let sectionItems : [String] = ["서울","부산","경기"]
     private let dummyItems : [String] = ["스파게티","치킨","족발"]
@@ -36,7 +36,6 @@ class HomeViewController: MapViewController {
             
         } 
     }
-    
     func requestGPSPermission() -> Bool {
           switch CLLocationManager.authorizationStatus() {
           case .authorizedAlways, .authorizedWhenInUse:
@@ -55,54 +54,47 @@ class HomeViewController: MapViewController {
     }
 }
 
-//MARK: - tableView DataSource
-extension HomeViewController : UITableViewDataSource {
-  
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sectionItems[section]
-    }
-
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 40
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+//MARK: - collectionView DataSource
+extension HomeViewController : UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sectionItems.count
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyItems.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        dummyItems.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MatzipCell", for: indexPath) as? MatzipCell else{
-            return UITableViewCell()
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MatzipCell", for: indexPath) as? MatzipCell else {
+            return UICollectionViewCell()
         }
-        switch (indexPath.section){
-        case 0:
-            cell.testLabel.text = dummyItems[indexPath.row]
-        case 1:
-            cell.testLabel.text = dummyItems[indexPath.row]
-        case 2:
-            cell.testLabel.text = dummyItems[indexPath.row]
-        default:
-            print("section 에러")
-        }
+        cell.testLabel.text = dummyItems[indexPath.row]
         
         return cell
     }
 }
 
-//MARK: - tableView Delegate
-extension HomeViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeader = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 40))
-        let sectionText = UILabel()
-        sectionText.frame = CGRect.init(x: 10, y: 5, width: sectionHeader.frame.width-10, height: sectionHeader.frame.height-10)
-        sectionText.text = sectionItems[section]
-        sectionText.font = .systemFont(ofSize: 18, weight: .bold) // my custom font
-        sectionText.textColor = .systemPink // my custom color
-        sectionHeader.addSubview(sectionText)
-        return sectionHeader
+//MARK: - collectionView Delegate
+extension HomeViewController : UICollectionViewDelegate {
+
+}
+
+//MARK: - collectionView FlowLayout
+extension HomeViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            //TODO : header custom class 만들어서 사용해보자
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
+            headerView.backgroundColor = .red
+            return headerView
+        default :
+            return UICollectionReusableView()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //TODO: view.frame의 값으로 기기별 사이즈에 맞춰 아이탬들의 사이즈 조절
+        return CGSize(width: 300, height: 40)
     }
 }

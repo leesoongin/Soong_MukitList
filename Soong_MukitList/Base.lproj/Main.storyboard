@@ -66,66 +66,89 @@
                                     <segue destination="Omd-xs-pkp" kind="embed" identifier="Category" id="jzy-z8-tE8"/>
                                 </connections>
                             </containerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Otd-EI-P4s">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Z4N-kB-43P">
                                 <rect key="frame" x="0.0" y="497" width="414" height="316"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MatzipCell" id="lMO-5z-VBM" customClass="MatzipCell" customModule="Soong_MukitList" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lMO-5z-VBM" id="kJx-5y-X2a">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mfu-bg-aPW">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="50"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MatzipCell" id="aa9-je-CCi" customClass="MatzipCell" customModule="Soong_MukitList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lYB-wh-V9Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfw-67-QI5">
-                                                    <rect key="frame" x="20" y="11" width="334" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzA-dc-Fgm">
+                                                    <rect key="frame" x="43" y="53.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="rfw-67-QI5" secondAttribute="trailing" id="Dhz-lF-wZF"/>
-                                                <constraint firstItem="rfw-67-QI5" firstAttribute="leading" secondItem="kJx-5y-X2a" secondAttribute="leadingMargin" id="DuM-cP-fs0"/>
-                                                <constraint firstItem="rfw-67-QI5" firstAttribute="bottom" secondItem="kJx-5y-X2a" secondAttribute="bottomMargin" id="Scw-yQ-iB9"/>
-                                                <constraint firstItem="rfw-67-QI5" firstAttribute="top" secondItem="kJx-5y-X2a" secondAttribute="topMargin" id="Sof-bu-9Nr"/>
+                                                <constraint firstItem="BzA-dc-Fgm" firstAttribute="centerX" secondItem="lYB-wh-V9Z" secondAttribute="centerX" id="WMA-Y1-pNE"/>
+                                                <constraint firstItem="BzA-dc-Fgm" firstAttribute="centerY" secondItem="lYB-wh-V9Z" secondAttribute="centerY" id="dfL-eK-gMM"/>
                                             </constraints>
-                                        </tableViewCellContentView>
+                                        </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="testLabel" destination="rfw-67-QI5" id="wYY-e2-Gkf"/>
+                                            <outlet property="testLabel" destination="BzA-dc-Fgm" id="Oi6-dK-awP"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="AMv-hl-bXO" customClass="MatzipHeaderView" customModule="Soong_MukitList" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbK-O7-HyT">
+                                            <rect key="frame" x="8" y="8" width="53" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gbK-O7-HyT" secondAttribute="trailing" constant="345" id="3QA-DL-53k"/>
+                                        <constraint firstItem="gbK-O7-HyT" firstAttribute="leading" secondItem="AMv-hl-bXO" secondAttribute="leadingMargin" id="OXk-8Z-dMD"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gbK-O7-HyT" secondAttribute="bottom" id="S31-49-tJa"/>
+                                        <constraint firstItem="gbK-O7-HyT" firstAttribute="top" secondItem="AMv-hl-bXO" secondAttribute="topMargin" id="XPQ-kQ-KP4"/>
+                                    </constraints>
+                                </collectionReusableView>
                                 <connections>
-                                    <outlet property="dataSource" destination="aJ0-Qq-XxR" id="oip-jD-kWc"/>
-                                    <outlet property="delegate" destination="aJ0-Qq-XxR" id="zi8-oF-Kmf"/>
+                                    <outlet property="dataSource" destination="aJ0-Qq-XxR" id="BpI-t8-AIK"/>
+                                    <outlet property="delegate" destination="aJ0-Qq-XxR" id="fXh-wr-79Z"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u8l-jY-ueX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="u8l-jY-ueX" firstAttribute="bottom" secondItem="Z4N-kB-43P" secondAttribute="bottom" id="3kJ-zY-c4F"/>
                             <constraint firstItem="u8l-jY-ueX" firstAttribute="trailing" secondItem="myL-2t-lip" secondAttribute="trailing" id="GJO-FY-9D5"/>
-                            <constraint firstItem="Otd-EI-P4s" firstAttribute="top" secondItem="myL-2t-lip" secondAttribute="bottom" id="JKx-9i-Bzo"/>
+                            <constraint firstItem="Z4N-kB-43P" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" id="L5U-Cj-nNv"/>
                             <constraint firstItem="Any-kX-vQ4" firstAttribute="top" secondItem="u8l-jY-ueX" secondAttribute="top" id="O0B-C0-kNE"/>
                             <constraint firstItem="myL-2t-lip" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" id="QYx-Kc-IcJ"/>
-                            <constraint firstItem="Otd-EI-P4s" firstAttribute="bottom" secondItem="u8l-jY-ueX" secondAttribute="bottom" id="UeN-jU-MK3"/>
-                            <constraint firstItem="Otd-EI-P4s" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" id="ZNH-Mi-8De"/>
+                            <constraint firstItem="Z4N-kB-43P" firstAttribute="top" secondItem="myL-2t-lip" secondAttribute="bottom" id="ZMd-WN-a4W"/>
                             <constraint firstItem="Any-kX-vQ4" firstAttribute="leading" secondItem="u8l-jY-ueX" secondAttribute="leading" constant="4" id="nnR-mu-k13"/>
                             <constraint firstItem="myL-2t-lip" firstAttribute="top" secondItem="ipo-zP-chw" secondAttribute="top" id="oJf-bb-5xO"/>
-                            <constraint firstItem="Otd-EI-P4s" firstAttribute="trailing" secondItem="u8l-jY-ueX" secondAttribute="trailing" id="tOM-DN-jgd"/>
+                            <constraint firstItem="u8l-jY-ueX" firstAttribute="trailing" secondItem="Z4N-kB-43P" secondAttribute="trailing" id="oiC-mA-2fY"/>
                             <constraint firstItem="u8l-jY-ueX" firstAttribute="trailing" secondItem="Any-kX-vQ4" secondAttribute="trailing" constant="4" id="tiX-v9-9wI"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="맛집리스트" image="list.dash" catalog="system" id="XgA-30-Vdz"/>
                     <connections>
+                        <outlet property="collectionView" destination="Z4N-kB-43P" id="sd4-6w-f5X"/>
                         <outlet property="naverMapView" destination="myL-2t-lip" id="ics-LN-OVQ"/>
-                        <outlet property="tableView" destination="Otd-EI-P4s" id="e1d-bR-qiX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u1y-Ob-Ame" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1104" y="941"/>
+            <point key="canvasLocation" x="-1420" y="941"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="uDM-if-cG2">
@@ -208,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q2D-JG-fwv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346" y="722"/>
+            <point key="canvasLocation" x="-651" y="660"/>
         </scene>
     </scenes>
     <resources>

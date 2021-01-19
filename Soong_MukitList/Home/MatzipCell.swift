@@ -7,18 +7,8 @@
 
 import UIKit
 
-class MatzipCell: UITableViewCell {
+class MatzipCell: UICollectionViewCell {
 
     @IBOutlet weak var testLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
-
+    //das
 }
