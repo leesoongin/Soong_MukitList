@@ -11,8 +11,11 @@ import NMapsMap
 class HomeViewController: MapViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let sectionItems : [String] = ["서울","부산","경기"]
-    private let dummyItems : [String] = ["스파게티","치킨","족발"]
+    @IBOutlet weak var categoryButton: UIButton!
+    @IBOutlet weak var areaButton: UIButton!
+
+    private let sectionItems : [String] = ["서울","부산","경기","부산"]
+    private let dummyItems : [String] = ["한식","일식","중식","양식","야식"]
 
     var locationManager = CLLocationManager()
     
@@ -22,6 +25,7 @@ class HomeViewController: MapViewController {
         if !requestGPSPermission(){
             locationManager.requestAlwaysAuthorization()
         }
+        mapView.layer.cornerRadius = 20
         mapView.moveCamera(NMFCameraUpdate(position: NMFCameraPosition(NMGLatLng(lat: mapView.locationOverlay.location.lat, lng: mapView.locationOverlay.location.lng), zoom: 15, tilt: 0, heading: 0)))
         mapView.positionMode = .compass
         naverMapView.showLocationButton = true //내 위치 찾기 버튼 활성화 false는 비활성화
@@ -31,11 +35,16 @@ class HomeViewController: MapViewController {
         super.viewWillAppear(true)
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Category" {
-            
-        } 
+        if segue.identifier == "categorySegue" {
+            let vc = segue.destination as? PickerViewController
+            vc?.modalPresentationStyle = .overCurrentContext
+            vc?.test = "넘어감"
+        }
+
     }
+
     func requestGPSPermission() -> Bool {
           switch CLLocationManager.authorizationStatus() {
           case .authorizedAlways, .authorizedWhenInUse:
@@ -95,7 +104,7 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
             //TODO : header custom class 만들어서 사용해보자
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
             headerView.backgroundColor = .clear
-            
+            headerView.layer.zPosition = 120
             
             return headerView
         default :
@@ -111,7 +120,6 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
         let width : CGFloat = (collectionView.bounds.width-itemSpacing - margin*2) / 2
         let height : CGFloat = width + 60
         
-        print("width -> \(width), \(height), \(collectionView.bounds.width)")
         return CGSize(width: width, height: height)
     }
 }
