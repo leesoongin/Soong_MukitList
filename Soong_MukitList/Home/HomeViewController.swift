@@ -56,9 +56,7 @@ class HomeViewController: MapViewController {
 
 //MARK: - collectionView DataSource
 extension HomeViewController : UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return sectionItems.count
-    }
+  
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         dummyItems.count
     }
@@ -67,8 +65,19 @@ extension HomeViewController : UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MatzipCell", for: indexPath) as? MatzipCell else {
             return UICollectionViewCell()
         }
-        cell.testLabel.text = dummyItems[indexPath.row]
-        
+       
+        cell.imageView.clipsToBounds = true
+        cell.imageView.image =  #imageLiteral(resourceName: "testImage")
+      
+        cell.backgroundColor =  #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell.layer.cornerRadius = 10.0
+        cell.layer.masksToBounds = true
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0.3, height: 1.0)
+        cell.layer.shadowRadius = 2.0
+        cell.layer.shadowOpacity = 0.4
+        cell.layer.masksToBounds = false
+       
         return cell
     }
 }
@@ -80,13 +89,14 @@ extension HomeViewController : UICollectionViewDelegate {
 
 //MARK: - collectionView FlowLayout
 extension HomeViewController : UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             //TODO : header custom class 만들어서 사용해보자
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-            headerView.backgroundColor = .red
+            headerView.backgroundColor = .clear
+            
+            
             return headerView
         default :
             return UICollectionReusableView()
@@ -95,6 +105,13 @@ extension HomeViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //TODO: view.frame의 값으로 기기별 사이즈에 맞춰 아이탬들의 사이즈 조절
-        return CGSize(width: 300, height: 40)
+        // 20 - card(width) - 20 - card(width) - 20
+        let itemSpacing : CGFloat = 20
+        let margin : CGFloat = 10
+        let width : CGFloat = (collectionView.bounds.width-itemSpacing - margin*2) / 2
+        let height : CGFloat = width + 60
+        
+        print("width -> \(width), \(height), \(collectionView.bounds.width)")
+        return CGSize(width: width, height: height)
     }
 }
